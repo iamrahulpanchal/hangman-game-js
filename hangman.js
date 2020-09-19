@@ -9,7 +9,7 @@ Hangman.prototype.calcStatus = function(){
     let finished = true;
 
     this.word.forEach((letter) => {
-        if(this.guessedLetters.includes(letter)){
+        if(this.guessedLetters.includes(letter) || letter === ' '){
             
         } else {
             finished = false;

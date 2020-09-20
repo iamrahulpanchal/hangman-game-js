@@ -1,22 +1,32 @@
-const h1 = new Hangman('CAT', 2);
-const h2 = new Hangman('bhayandar', 5);
+let h1;
 
 const puzzleEl = document.querySelector('#puzzle');
 const guessesEl = document.querySelector('#guesses');
 
-puzzleEl.textContent = h1.getPuzzle();
-guessesEl.textContent = h1.getStatusMsg();
-
 window.addEventListener('keypress', (e) => {
     const guess = e.key.toLowerCase();
     h1.guessLetter(guess);
-    puzzleEl.textContent = h1.getPuzzle();
-    guessesEl.textContent = h1.getStatusMsg();
+    render();
 });
 
-const noOfWords = 2;
-getPuzzleAsync(noOfWords).then((puzzle) => {
-    console.log(puzzle);
-}).catch((err) => {
-    console.log(`Error : ${err}`);
-})
+const render = () => {
+    puzzleEl.textContent = h1.getPuzzle();
+    guessesEl.textContent = h1.getStatusMsg();
+}
+
+const startGame = async () => {
+    const puzzle = await getPuzzleAsync(2);
+    h1 = new Hangman(puzzle, 5);
+    render();
+}
+
+document.querySelector('#reset').addEventListener('click', startGame);
+
+startGame();
+// const noOfWords = 2;
+// getPuzzleAsync(noOfWords).then((puzzle) => {
+//     console.log(puzzle);
+// }).catch((err) => {
+//     console.log(`Error : ${err}`);
+// });
+

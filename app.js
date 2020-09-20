@@ -14,8 +14,8 @@ window.addEventListener('keypress', (e) => {
     guessesEl.textContent = h1.getStatusMsg();
 });
 
-const noOfWords = 3;
-getPuzzle(noOfWords).then((puzzle) => {
+const noOfWords = 2;
+getPuzzleAsync(noOfWords).then((puzzle) => {
     console.log(puzzle);
 }).catch((err) => {
     console.log(`Error : ${err}`);

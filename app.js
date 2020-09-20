@@ -15,19 +15,8 @@ window.addEventListener('keypress', (e) => {
 });
 
 const noOfWords = 2;
-getPuzzle(noOfWords, (error, word) => {
-    if(error){
-        console.log(`Error : ${error}`);
-    } else {
-        console.log(word);
-    }
-});
-
-const countryCode = "IN";
-getCountryName(countryCode, (error, countryName) => {
-    if (error) {
-        console.log(`Error : ${error}`);
-    } else {
-        console.log(countryName);
-    }
+getPuzzle(noOfWords).then((puzzle) => {
+    console.log(puzzle);
+}, (err) => {
+    console.log(err);
 });

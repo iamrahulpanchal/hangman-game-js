@@ -10,8 +10,14 @@ window.addEventListener('keypress', (e) => {
 });
 
 const render = () => {
-    puzzleEl.textContent = h1.getPuzzle();
+    puzzleEl.innerHTML = '';
     guessesEl.textContent = h1.getStatusMsg();
+
+    h1.getPuzzle().split('').forEach((letter) => {
+        const letterEl =  document.createElement('span');
+        letterEl.textContent = letter;
+        puzzleEl.appendChild(letterEl);
+    });
 }
 
 const startGame = async () => {

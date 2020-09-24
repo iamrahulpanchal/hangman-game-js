@@ -1,3 +1,6 @@
+import Hangman from './hangman';
+import getPuzzleAsync from './requests';
+
 let h1;
 
 const puzzleEl = document.querySelector('#puzzle');
@@ -29,10 +32,3 @@ const startGame = async () => {
 document.querySelector('#reset').addEventListener('click', startGame);
 
 startGame();
-// const noOfWords = 2;
-// getPuzzleAsync(noOfWords).then((puzzle) => {
-//     console.log(puzzle);
-// }).catch((err) => {
-//     console.log(`Error : ${err}`);
-// });
-

@@ -64,3 +64,5 @@ Hangman.prototype.guessLetter = function(guess){
     }
     this.calcStatus();
 }
+
+export { Hangman as default };
